@@ -4,7 +4,7 @@
   "description": "Flicker image gallery built with React/Redux",
   "main": "app/index.js",
   "scripts": {
-    "test": "NODE_ENV=test NODE_PATH=./app mocha --compilers js:babel-register -r spec/setup.mocha.js --recursive 'spec/*.spec.js' --reporter spec",
+    "test": "NODE_ENV=test NODE_PATH=./src mocha --compilers js:babel-register -r spec/setup.mocha.js --recursive 'spec/*.spec.js' --reporter spec",
     "start": "NODE_ENV=development node_modules/.bin/webpack-dev-server --colors --port 8080 --inline",
     "dev": "npm run start",
     "build": "NODE_ENV=production node_modules/.bin/webpack --optimize-minimize --progress --colors --display-error-details"
@@ -38,8 +38,8 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.8.0",
-    "chai": "^3.5.0",
-    "chai-as-promised": "^5.3.0",
+    "chai": "^4.1.0",
+    "chai-as-promised": "^7.1.1",
     "clean-webpack-plugin": "^0.1.9",
     "css-loader": "^0.23.1",
     "eslint": "^3.12.2",
@@ -54,7 +54,7 @@
     "jsdom": "^8.5.0",
     "json-loader": "^0.5.4",
     "karma": "^0.13.22",
-    "mocha": "^2.5.3",
+    "mocha": "^3.4.2",
     "node-sass": "^4.5.3",
     "react-hot-loader": "^1.3.0",
     "rebass": "^0.2.6",

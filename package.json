@@ -25,7 +25,9 @@
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
-    "reselect": "3.0.1"
+    "redux-observable": "^0.16.0",
+    "reselect": "3.0.1",
+    "rxjs": "^5.4.3"
   },
   "devDependencies": {
     "babel": "^6.5.2",

@@ -1,8 +1,11 @@
-import chai from 'chai';
-import chaiAsPromised from 'chai-as-promised';
-import sinonChai from 'sinon-chai';
+const chai = require('chai');
+const chaiAsPromised = require('chai-as-promised');
+const sinonChai = require('sinon-chai');
+const sinon = require('sinon');
 
 chai.use(sinonChai);
 chai.use(chaiAsPromised);
 
-window.expect = chai.expect;
+global.sinon = sinon;
+global.expect = chai.expect;
+global.chai = chai;

@@ -8,15 +8,12 @@ import {
   selectImage,
 } from './actions';
 import {
-  getUrlForActiveImage,
   getImageList,
-  getNextImageId,
-  getPreviousImageId,
 } from './selectors';
 
 import MainImage from './components/MainImage';
 import TeaserBox from './components/TeaserBox';
-import ArrowButton from './components/ArrowButton';
+import Arrows from './components/Arrows';
 import SearchBox from './components/SearchBox';
 import './sass/modules/app-container.scss';
 
@@ -37,14 +34,13 @@ class App extends Component {
   }
 
   render() {
-    const { imageUrl, nextImageId, previousImageId, selectImage } = this.props;
+    const { selectImage } = this.props;
     const teaserBoxes = this.renderTeaserBoxes();
 
     return (<div className="app-container">
       <SearchBox />
-      <ArrowButton direction="left" imageId={previousImageId} selectImage={selectImage} />
-      <ArrowButton direction="right" imageId={nextImageId} selectImage={selectImage} />
-      <MainImage imageUrl={imageUrl} />
+      <Arrows />
+      <MainImage />
       <div className="teaser-boxes-container">
         {teaserBoxes}
       </div>
@@ -53,10 +49,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  imageUrl: getUrlForActiveImage(state),
   imageList: getImageList(state),
-  nextImageId: getNextImageId(state),
-  previousImageId: getPreviousImageId(state),
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -67,9 +60,6 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 App.propTypes = {
   fetchImagesStart: PropTypes.func,
   imageList: PropTypes.array,
-  imageUrl: PropTypes.string,
-  nextImageId: PropTypes.string,
-  previousImageId: PropTypes.string,
   selectImage: PropTypes.func,
 };
 

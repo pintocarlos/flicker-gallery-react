@@ -13,3 +13,31 @@ export const getUrlForActiveImage = createSelector(
   (selectedImageId, images) => (images && images[selectedImageId])
     ? images[selectedImageId].url
     : null);
+
+export const getPreviousImageId = createSelector(
+  getSelectedImageId,
+  getImageList,
+  (selectedImageId, imageList) => {
+    const imageIds = imageList.map((image) => image.id);
+    const selectedImageIndex = imageIds.indexOf(selectedImageId);
+    const previousImageIndex = selectedImageIndex - 1;
+
+    return (selectedImageIndex === 0)
+    ? imageIds[imageIds.length - 1]
+    : imageIds[previousImageIndex];
+  }
+);
+
+export const getNextImageId = createSelector(
+  getSelectedImageId,
+  getImageList,
+  (selectedImageId, imageList) => {
+    const imageIds = imageList.map((image) => image.id);
+    const selectedImageIndex = imageIds.indexOf(selectedImageId);
+    const nextImageIndex = selectedImageIndex + 1;
+
+    return (selectedImageIndex === imageIds.length - 1)
+    ? imageIds[0]
+    : imageIds[nextImageIndex];
+  }
+);

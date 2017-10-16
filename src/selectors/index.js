@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 
 export const getSelectedImageId = state => state.gallery.get('selectedImageId');
 export const getImages = state => state.gallery.get('images') || {};
+export const getSearchKey = state => state.gallery.get('searchKey');
 
 export const getImageList = createSelector(
   getImages,

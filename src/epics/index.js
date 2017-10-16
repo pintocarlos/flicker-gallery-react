@@ -7,6 +7,9 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/mergeMap';
 import { fetchFlickerImages } from '../api';
+import {
+  getSearchKey,
+} from '../selectors';
 
 import {
   // ACTION NAMES:
@@ -17,11 +20,11 @@ import {
   fetchImagesFailed,
 } from '../actions';
 
-export const fetchImages = (action$) =>
+export const fetchImages = (action$, store) =>
   action$
     .filter(action => action.type === FETCH_IMAGES_START)
     .mergeMap(() =>
-      Observable.fromPromise(fetchFlickerImages())
+      Observable.fromPromise(fetchFlickerImages(getSearchKey(store.getState())))
         .map(response => fetchImagesDone(response.data.photos.photo.slice(0, 4)))
         .catch(error => Observable.of(fetchImagesFailed(error)))
     );

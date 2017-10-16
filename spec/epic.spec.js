@@ -20,7 +20,7 @@ describe('epics', () => {
     let action$;
     beforeEach(() => {
       axiosGetStub = sinon.stub(axios, 'get').resolves({ data: { photos: { photo: [1, 2, 3, 4, 5] } } });
-      store = mockStore({ app: Map({}) });
+      store = mockStore({ gallery: Map({}) });
       action$ = ActionsObservable.of({ type: FETCH_IMAGES_START });
     });
     

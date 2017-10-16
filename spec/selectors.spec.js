@@ -7,6 +7,7 @@ import {
   getUrlForActiveImage,
   getNextImageId,
   getPreviousImageId,
+  getSearchKey,
 } from '../src/selectors';
 
 const mockStore = configureMockStore();
@@ -28,7 +29,7 @@ describe('selectors', () => {
             url: 'http://farm2.static.flickr.com/server2/id2_secret2.jpg',
           },
         },
-        searchKey: null,
+        searchKey: 'hola amigos',
       }),
     });
   });
@@ -72,6 +73,12 @@ describe('selectors', () => {
   describe('getUrlForActiveImage', () => {
     it('should get the url for the selected image id from the gallery state', () => {
       expect(getUrlForActiveImage(store.getState())).to.equal('http://farm1.static.flickr.com/server1/id1_secret1.jpg');
+    });
+  });
+
+  describe('getSearchKey', () => {
+    it('should get the searchKey from the gallery state', () => {
+      expect(getSearchKey(store.getState())).to.equal('hola amigos');
     });
   });
 

@@ -4,6 +4,7 @@ import {
   fetchImagesStart,
   fetchImagesDone,
   fetchImagesFailed,
+  selectImage,
 } from '../src/actions';
 
 const imageSampleData = [
@@ -102,6 +103,17 @@ describe('galleryReducer', () => {
       const nextState = galleryReducer(currentState, action);
 
       expect(nextState.get('loading')).to.be.false;
+    });
+  });
+
+  describe('selectImage is dispatched', () => {
+    it('should set loading to true', () => {
+      const currentState = galleryReducer();
+      const action = selectImage('someImageId');
+
+      const nextState = galleryReducer(currentState, action);
+
+      expect(nextState.get('selectedImageId')).to.equal('someImageId');
     });
   });
 });

@@ -7,6 +7,5 @@ export const fetchImagesStart = () => actionCreator(FETCH_IMAGES_START);
 export const fetchImagesDone = images => actionCreator(FETCH_IMAGES_DONE, { images });
 export const fetchImagesFailed = error => actionCreator(FETCH_IMAGES_FAILED, { error });
 
-
 export const SELECT_IMAGE = 'SELECT_IMAGE';
 export const selectImage = imageId => actionCreator(SELECT_IMAGE, { imageId });

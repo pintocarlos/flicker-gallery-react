@@ -4,6 +4,7 @@ import {
   FETCH_IMAGES_START,
   FETCH_IMAGES_DONE,
   FETCH_IMAGES_FAILED,
+  SELECT_IMAGE,
 } from '../actions';
 
 const gallery = Map({
@@ -48,6 +49,9 @@ export default (state = gallery, action = actionCreator()) => {
     case FETCH_IMAGES_FAILED:
       return state.set('loading', false);
 
+    case SELECT_IMAGE:
+      return state.set('selectedImageId', payload.imageId);
+      
     default:
       return state;
   }

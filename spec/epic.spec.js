@@ -3,11 +3,12 @@ import configureMockStore from 'redux-mock-store';
 import 'rxjs/add/operator/toArray';
 import { createEpicMiddleware, ActionsObservable } from 'redux-observable';
 import { Map } from 'immutable';
-import { fetchImages } from '../src/epics';
+import { fetchImages, searchImages } from '../src/epics';
 import {
   FETCH_IMAGES_START,
   FETCH_IMAGES_DONE,
   FETCH_IMAGES_FAILED,
+  SET_SEARCH_KEY,
 } from '../src/actions';
 
 const epicMiddleware = createEpicMiddleware(fetchImages);
@@ -62,6 +63,31 @@ describe('epics', () => {
           }
         );
       });
+    });
+  });
+
+  describe('seachImages', () => {
+    let store;
+    let action$;
+    beforeEach(() => {
+      store = mockStore({ gallery: Map({}) });
+      action$ = ActionsObservable.of({ type: SET_SEARCH_KEY });
+    });
+  
+    it('dispatches the correct actions with expected payloads', done => {
+      const expectedOutputActions = [{
+        type: FETCH_IMAGES_START,
+        meta: undefined,
+        payload: undefined,
+      }];
+  
+      searchImages(action$, store)
+        .toArray()
+        .subscribe(actualOutputActions => {
+          expect(actualOutputActions).to.deep.equal(expectedOutputActions);
+          done();
+        }
+      );
     });
   });
 });

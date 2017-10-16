@@ -4,8 +4,10 @@ import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mapTo';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/debounceTime';
 import { fetchFlickerImages } from '../api';
 import {
   getSearchKey,
@@ -14,8 +16,10 @@ import {
 import {
   // ACTION NAMES:
   FETCH_IMAGES_START,
-
+  SET_SEARCH_KEY,
+  
   // ACTION CREATORS:
+  fetchImagesStart,
   fetchImagesDone,
   fetchImagesFailed,
 } from '../actions';
@@ -29,6 +33,13 @@ export const fetchImages = (action$, store) =>
         .catch(error => Observable.of(fetchImagesFailed(error)))
     );
 
+export const searchImages = (action$) =>
+  action$
+    .filter(action => action.type === SET_SEARCH_KEY)
+    .debounceTime(350)
+    .mapTo(fetchImagesStart());
+
 export default combineEpics(
   fetchImages,
+  searchImages,
 );

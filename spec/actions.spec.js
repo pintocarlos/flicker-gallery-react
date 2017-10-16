@@ -3,11 +3,13 @@ import {
   fetchImagesStart,
   fetchImagesDone,
   fetchImagesFailed,
-  
+  selectImage,
+
   // action names
   FETCH_IMAGES_START,
   FETCH_IMAGES_DONE,
   FETCH_IMAGES_FAILED,
+  SELECT_IMAGE,
 
 } from '../src/actions';
 
@@ -47,6 +49,21 @@ describe('actions', () => {
 
       expect(action.payload.error).to.exist;
       expect(action.payload.error.message).to.deep.equal('oh no!');
+    });
+  });
+
+  describe('selectImage', () => {
+    it('should have correct action type', () => {
+      const action = selectImage();
+
+      expect(action.type).to.equal(SELECT_IMAGE);
+    });
+
+    it('should pass imageId to payload', () => {
+      const action = selectImage(123);
+
+      expect(action.payload.imageId).to.exist;
+      expect(action.payload.imageId).to.deep.equal(123);
     });
   });
 });

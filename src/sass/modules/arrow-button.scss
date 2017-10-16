@@ -4,7 +4,11 @@
   height: 100px;
   width: 100px;
   top: 250px;
-  
+
+  @media (max-width: 667px) {
+    top: 120px;
+  }
+
   background-image:
   radial-gradient(
     circle closest-side,
@@ -19,6 +23,10 @@
 
   &.left-arrow {
     left: 50px;
+    @media (max-width: 667px) {
+      left: -10px;
+    }
+
     div {
       background: url('../../assets/images/left_arrow.png');
       background-size: cover;
@@ -27,6 +35,10 @@
 
   &.right-arrow {
     right: 50px;
+    @media (max-width: 667px) {
+      right: -10px;
+    }
+
     div {
       background: url('../../assets/images/right_arrow.png');
       background-size: cover;

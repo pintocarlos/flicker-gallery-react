@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TeaserBox from '../TeaserBox';
+import '../../sass/modules/teaser-boxes.scss';
 
 class TeaserBoxes extends Component {
   render() {

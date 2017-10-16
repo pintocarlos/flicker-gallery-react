@@ -8,4 +8,14 @@
   &.selected {
     border: 1px solid white;
   }
+
+  @media (max-width: 667px) {
+    height: 80px;
+    width: 80px;
+  }
+
+  @media (min-width: 668px) and (max-width: 950px) { 
+    height: 120px;
+    width: 120px;
+  }
 }

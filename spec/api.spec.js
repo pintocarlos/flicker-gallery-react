@@ -28,7 +28,7 @@ describe('fetchFlickerImages', () => {
     it('should attempt to retrieve images from search images API', () => fetchFlickerImages('hello')
       .then(() => {
         expect(axios.get).to.have.been.calledOnce;
-        expect(axios.get).to.have.been.calledWith(`${settings.FLICKER_SEARCH_IMAGES_URL}&=hello`);
+        expect(axios.get).to.have.been.calledWith(`${settings.FLICKER_SEARCH_IMAGES_URL}hello`);
       }));
 
     it('should retrieve images from axios get', () => fetchFlickerImages()

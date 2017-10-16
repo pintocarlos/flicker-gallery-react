@@ -10,10 +10,13 @@ import {
 import {
   getUrlForActiveImage,
   getImageList,
+  getNextImageId,
+  getPreviousImageId,
 } from './selectors';
 
 import MainImage from './components/MainImage';
 import TeaserBox from './components/TeaserBox';
+import ArrowButton from './components/ArrowButton';
 
 class App extends Component {
   componentWillMount() {
@@ -32,10 +35,14 @@ class App extends Component {
   }
 
   render() {
-    const { imageUrl } = this.props;
+    const { imageUrl, nextImageId, previousImageId, selectImage } = this.props;
     const teaserBoxes = this.renderTeaserBoxes();
 
     return (<div className="app-container">
+      <div className="arrows-container">
+        <ArrowButton direction="left" imageId={previousImageId} selectImage={selectImage} />
+        <ArrowButton direction="right" imageId={nextImageId} selectImage={selectImage} />
+      </div>
       <MainImage imageUrl={imageUrl} />
       <div className="teaser-boxes-container">
         {teaserBoxes}
@@ -47,6 +54,8 @@ class App extends Component {
 const mapStateToProps = state => ({
   imageUrl: getUrlForActiveImage(state),
   imageList: getImageList(state),
+  nextImageId: getNextImageId(state),
+  previousImageId: getPreviousImageId(state),
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -58,6 +67,8 @@ App.propTypes = {
   fetchImagesStart: PropTypes.func,
   imageList: PropTypes.array,
   imageUrl: PropTypes.string,
+  nextImageId: PropTypes.string,
+  previousImageId: PropTypes.string,
   selectImage: PropTypes.func,
 };
 

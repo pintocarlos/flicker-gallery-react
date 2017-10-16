@@ -1,0 +1,35 @@
+.arrow-button {
+  cursor: pointer;
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  top: 250px;
+  
+  background-image:
+  radial-gradient(
+    circle closest-side,
+    rgba(0, 0, 0, 0.678),
+    transparent
+  );
+
+  div {
+    height: 100px;
+    width: 100px;
+  }
+
+  &.left-arrow {
+    left: 100px;
+    div {
+      background: url('../../assets/images/left_arrow.png');
+      background-size: cover;
+    }
+  }
+
+  &.right-arrow {
+    right: 100px;
+    div {
+      background: url('../../assets/images/right_arrow.png');
+      background-size: cover;
+    }
+  }
+}

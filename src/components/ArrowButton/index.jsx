@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../../sass/modules/arrow-button.scss';
 
 class ArrowButton extends Component {
   render() {
@@ -8,8 +9,8 @@ class ArrowButton extends Component {
       ? 'right-arrow'
       : 'left-arrow';
 
-    return (<div className={className} id={className} onClick={() => selectImage(imageId)}>
-      {className}
+    return (<div className={`arrow-button ${className}`} id={className} onClick={() => selectImage(imageId)}>
+      <div></div>
     </div>);
   }
 }

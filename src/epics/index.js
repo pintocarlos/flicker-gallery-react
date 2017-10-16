@@ -22,7 +22,7 @@ export const fetchImages = (action$) =>
     .filter(action => action.type === FETCH_IMAGES_START)
     .mergeMap(() =>
       Observable.fromPromise(fetchFlickerImages())
-        .map(response => fetchImagesDone(response.data.images))
+        .map(response => fetchImagesDone(response.data.photos.photo.slice(0, 4)))
         .catch(error => Observable.of(fetchImagesFailed(error)))
     );
 

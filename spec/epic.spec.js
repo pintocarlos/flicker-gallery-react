@@ -19,7 +19,7 @@ describe('epics', () => {
     let store;
     let action$;
     beforeEach(() => {
-      axiosGetStub = sinon.stub(axios, 'get').resolves({ data: { images: [1, 2] } });
+      axiosGetStub = sinon.stub(axios, 'get').resolves({ data: { photos: { photo: [1, 2, 3, 4, 5] } } });
       store = mockStore({ app: Map({}) });
       action$ = ActionsObservable.of({ type: FETCH_IMAGES_START });
     });
@@ -30,7 +30,7 @@ describe('epics', () => {
       const expectedOutputActions = [{
         type: FETCH_IMAGES_DONE,
         meta: undefined,
-        payload: { images: [1, 2] },
+        payload: { images: [1, 2, 3, 4] },
       }];
   
       fetchImages(action$, store)

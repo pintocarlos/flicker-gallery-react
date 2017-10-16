@@ -6,7 +6,6 @@ import {
   FETCH_IMAGES_FAILED,
 } from '../actions';
 
-
 const gallery = Map({
   loading: true,
   selectedImageId: null,
@@ -42,6 +41,7 @@ export default (state = gallery, action = actionCreator()) => {
     case FETCH_IMAGES_DONE:
       const images = processImageData(payload.images);
       return state
+        .set('selectedImageId', Object.keys(images)[0])
         .set('images', images)
         .set('loading', false);
 

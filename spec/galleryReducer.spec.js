@@ -83,6 +83,15 @@ describe('galleryReducer', () => {
         },
       });
     });
+
+    it('should set selectedImageId', () => {
+      const currentState = galleryReducer();
+      const action = fetchImagesDone(imageSampleData);
+
+      const nextState = galleryReducer(currentState, action);
+
+      expect(nextState.get('selectedImageId')).to.deep.equal('id1');
+    });
   });
 
   describe('fetchImagesFailed is dispatched', () => {

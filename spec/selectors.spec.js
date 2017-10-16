@@ -2,6 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import { Map } from 'immutable';
 import {
   getImages,
+  getImageList,
   getSelectedImageId,
   getUrlForActiveImage,
 } from '../src/selectors';
@@ -48,6 +49,21 @@ describe('selectors', () => {
           url: 'http://farm2.static.flickr.com/server2/id2_secret2.jpg',
         },
       });
+    });
+  });
+
+  describe('getImageList', () => {
+    it('should get the images in an array from the gallery state', () => {
+      expect(getImageList(store.getState())).to.deep.equal([
+        {
+          id: 'id1',
+          url: 'http://farm1.static.flickr.com/server1/id1_secret1.jpg',
+        },
+        {
+          id: 'id2',
+          url: 'http://farm2.static.flickr.com/server2/id2_secret2.jpg',
+        }]
+      );
     });
   });
 

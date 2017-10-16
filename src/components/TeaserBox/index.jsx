@@ -11,7 +11,7 @@ class TeaserBox extends Component {
 
     return (<div
       id={id}
-      className="teaser-box"
+      className="teaser-box animated-fast fadeIn"
       style={styles}
       onClick={() => selectImage(id)}>
     </div>);

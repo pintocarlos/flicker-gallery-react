@@ -9,7 +9,7 @@ class MainImage extends Component {
       backgroundImage: `url(${ imageUrl })`,
     };
 
-    return <div className="main-image" style={styles}></div>;
+    return <div className="main-image animated-fast fadeIn" style={styles}></div>;
   }
 }
 

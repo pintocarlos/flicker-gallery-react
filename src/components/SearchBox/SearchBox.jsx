@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../../sass/modules/search-box.scss';
 
 class SearchBox extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class SearchBox extends Component {
     const { searchKey } = this.props;
 
     return (<div className="search-box">
-      <input type="text" value={searchKey} onChange={this.handleTyping} />
+      <input placeholder="Search..." type="text" value={searchKey} onChange={this.handleTyping} />
     </div>);
   }
 }

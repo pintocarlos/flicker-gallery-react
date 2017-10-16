@@ -5,6 +5,10 @@ This project renders a photo gallery retrieving picture data from Flicker's publ
 
 The gallery allows the user to enter a search key word and will display 4 images. The image thumbnails can be selected or browsed with the navigation arrows.
 
+This was built as an example app.
+
+![oct-16-2017 03-49-34](https://user-images.githubusercontent.com/1060904/31600759-964e1c5c-b225-11e7-8bcf-c96e0f240ab9.gif)
+
 ## Requirements
 node >= 8.1.4
 npm >= 5.4.2

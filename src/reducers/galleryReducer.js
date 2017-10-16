@@ -12,7 +12,7 @@ const gallery = Map({
   loading: true,
   selectedImageId: null,
   images: {},
-  searchKey: null,
+  searchKey: '',
 });
 
 const composeImageUrl = image =>

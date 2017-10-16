@@ -38,7 +38,7 @@ describe('galleryReducer', () => {
     loading: true,
     selectedImageId: null,
     images: {},
-    searchKey: null,
+    searchKey: '',
   });
   
   it('should return current state when action is not handled', () => {

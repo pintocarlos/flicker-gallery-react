@@ -4,12 +4,14 @@ import {
   fetchImagesDone,
   fetchImagesFailed,
   selectImage,
+  setSearchKey,
 
   // action names
   FETCH_IMAGES_START,
   FETCH_IMAGES_DONE,
   FETCH_IMAGES_FAILED,
   SELECT_IMAGE,
+  SET_SEARCH_KEY,
 
 } from '../src/actions';
 
@@ -64,6 +66,21 @@ describe('actions', () => {
 
       expect(action.payload.imageId).to.exist;
       expect(action.payload.imageId).to.deep.equal(123);
+    });
+  });
+
+  describe('setSearchKey', () => {
+    it('should have correct action type', () => {
+      const action = setSearchKey();
+
+      expect(action.type).to.equal(SET_SEARCH_KEY);
+    });
+
+    it('should pass searchKey to payload', () => {
+      const action = setSearchKey('hello');
+
+      expect(action.payload.searchKey).to.exist;
+      expect(action.payload.searchKey).to.equal('hello');
     });
   });
 });

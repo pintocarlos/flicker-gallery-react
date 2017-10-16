@@ -9,3 +9,6 @@ export const fetchImagesFailed = error => actionCreator(FETCH_IMAGES_FAILED, { e
 
 export const SELECT_IMAGE = 'SELECT_IMAGE';
 export const selectImage = imageId => actionCreator(SELECT_IMAGE, { imageId });
+
+export const SET_SEARCH_KEY = 'SET_SEARCH_KEY';
+export const setSearchKey = searchKey => actionCreator(SET_SEARCH_KEY, { searchKey });

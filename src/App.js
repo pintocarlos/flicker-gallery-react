@@ -18,6 +18,7 @@ import MainImage from './components/MainImage';
 import TeaserBox from './components/TeaserBox';
 import ArrowButton from './components/ArrowButton';
 import SearchBox from './components/SearchBox';
+import './sass/modules/app-container.scss';
 
 class App extends Component {
   componentWillMount() {
@@ -40,11 +41,9 @@ class App extends Component {
     const teaserBoxes = this.renderTeaserBoxes();
 
     return (<div className="app-container">
-      <div className="arrows-container">
-        <SearchBox />
-        <ArrowButton direction="left" imageId={previousImageId} selectImage={selectImage} />
-        <ArrowButton direction="right" imageId={nextImageId} selectImage={selectImage} />
-      </div>
+      <SearchBox />
+      <ArrowButton direction="left" imageId={previousImageId} selectImage={selectImage} />
+      <ArrowButton direction="right" imageId={nextImageId} selectImage={selectImage} />
       <MainImage imageUrl={imageUrl} />
       <div className="teaser-boxes-container">
         {teaserBoxes}

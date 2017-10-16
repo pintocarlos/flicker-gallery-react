@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../../sass/modules/teaser-box.scss';
 
 class TeaserBox extends Component {
   render() {
     const { id, imageUrl, selectImage } = this.props;
-    return (<div id={id} onClick={() => selectImage(id)}>
-      <img alt="teaser box" src={imageUrl} />
+    const styles = {
+      backgroundImage: `url(${ imageUrl })`,
+    };
+
+    return (<div
+      id={id}
+      className="teaser-box"
+      style={styles}
+      onClick={() => selectImage(id)}>
     </div>);
   }
 }

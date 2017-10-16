@@ -5,21 +5,26 @@ import { connect } from 'react-redux';
 import {
   fetchImagesStart,
 } from './actions';
+import {
+  getUrlForActiveImage,
+} from './selectors';
+import MainImage from './components/MainImage';
 
-class App extends React.Component {
+class App extends Component {
   componentWillMount() {
     this.props.fetchImagesStart();
   }
   
   render() {
+    const { imageUrl } = this.props;
     return (<div>
-      Setting up for flicker image gallery
+      <MainImage imageUrl={imageUrl} />
     </div>);
   }
 }
 
 const mapStateToProps = state => ({
-
+  imageUrl: getUrlForActiveImage(state),
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -28,6 +33,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 
 App.propTypes = {
   fetchImagesStart: PropTypes.func,
+  imageUrl: PropTypes.string,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

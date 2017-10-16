@@ -10,8 +10,11 @@ This was built as an example app.
 ![oct-16-2017 03-49-34](https://user-images.githubusercontent.com/1060904/31600759-964e1c5c-b225-11e7-8bcf-c96e0f240ab9.gif)
 
 ## Requirements
+Built with the following:
 node >= 8.1.4
 npm >= 5.4.2
+
+Use other versions with caution.
 
 ## How to run the project:
 * `npm install`
@@ -22,13 +25,17 @@ npm >= 5.4.2
 * `npm t`
 Tests cover the business logic of the app (reducer, api, actions, selectors, etc).
 
-## Tech and Implementation Details
-- Uses React v16 with latest rendering enginer optimizations, and array rendering.
-- Uses Redux and Immutable for maintaining immutable data state.
-- RXJS and redux-observable for ease of dispatching/chaining Redux actions.
+## Tech Details
+- Uses React v16 with latest rendering engine optimizations.
+- Uses Redux and ImmutableJS for maintaining immutable data state.
+- RXJS and redux-observable for ease of dispatching/chaining Redux actions, amongst other things.
 - Uses SASS as the CSS preprocessor.
 - Webpack for bundling and running the local server for development.
 - Axios for fetching data.
 - ES6+
-- Mobile friendly
+- Mobile friendly.
+- React hot loading.
+- ESLinting rules added.
 
+## License
+MIT

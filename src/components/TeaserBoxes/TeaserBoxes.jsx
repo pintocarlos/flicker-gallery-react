@@ -9,7 +9,7 @@ class TeaserBoxes extends Component {
     const teaserBoxes = [];
     for (const image of imageList) {
       const { id, url } = image;
-      teaserBoxes.push(<TeaserBox key={id} id={id} imageUrl={url} selectImage={selectImage} />);
+      teaserBoxes.push(<TeaserBox key={id} id={id} imageUrl={url} selectImage={selectImage} selectedImageId={selectedImageId} />);
     }
 
     return <div className="teaser-boxes-container">{teaserBoxes}</div>;

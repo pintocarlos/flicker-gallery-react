@@ -4,14 +4,15 @@ import '../../sass/modules/teaser-box.scss';
 
 class TeaserBox extends Component {
   render() {
-    const { id, imageUrl, selectImage } = this.props;
+    const { id, imageUrl, selectImage, selectedImageId } = this.props;
     const styles = {
       backgroundImage: `url(${ imageUrl })`,
     };
+    const selectedClassName = (selectedImageId === id) ? 'selected' : '';
 
     return (<div
       id={id}
-      className="teaser-box animated-fast fadeIn"
+      className={`teaser-box animated fadeIn ${selectedClassName}`}
       style={styles}
       onClick={() => selectImage(id)}>
     </div>);

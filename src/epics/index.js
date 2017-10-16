@@ -36,7 +36,7 @@ export const fetchImages = (action$, store) =>
 export const searchImages = (action$) =>
   action$
     .filter(action => action.type === SET_SEARCH_KEY)
-    .debounceTime(350)
+    .debounceTime(500)
     .mapTo(fetchImagesStart());
 
 export default combineEpics(

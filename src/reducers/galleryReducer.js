@@ -5,6 +5,7 @@ import {
   FETCH_IMAGES_DONE,
   FETCH_IMAGES_FAILED,
   SELECT_IMAGE,
+  SET_SEARCH_KEY,
 } from '../actions';
 
 const gallery = Map({
@@ -51,6 +52,9 @@ export default (state = gallery, action = actionCreator()) => {
 
     case SELECT_IMAGE:
       return state.set('selectedImageId', payload.imageId);
+    
+    case SET_SEARCH_KEY:
+      return state.set('searchKey', payload.searchKey);
       
     default:
       return state;

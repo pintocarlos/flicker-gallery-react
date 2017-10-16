@@ -5,6 +5,7 @@ import {
   fetchImagesDone,
   fetchImagesFailed,
   selectImage,
+  setSearchKey,
 } from '../src/actions';
 
 const imageSampleData = [
@@ -114,6 +115,17 @@ describe('galleryReducer', () => {
       const nextState = galleryReducer(currentState, action);
 
       expect(nextState.get('selectedImageId')).to.equal('someImageId');
+    });
+  });
+
+  describe('setSearchKey is dispatched', () => {
+    it('should set searchKey to passed value', () => {
+      const currentState = galleryReducer();
+      const action = setSearchKey('something');
+
+      const nextState = galleryReducer(currentState, action);
+
+      expect(nextState.get('searchKey')).to.equal('something');
     });
   });
 });

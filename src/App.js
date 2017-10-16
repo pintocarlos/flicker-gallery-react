@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import {
   fetchImagesStart,
+  selectImage,
 } from './actions';
 import {
   getUrlForActiveImage,
@@ -20,11 +21,11 @@ class App extends Component {
   }
   
   renderTeaserBoxes() {
-    const { imageList = [] } = this.props;
+    const { imageList = [], selectImage } = this.props;
     const teaserBoxes = [];
     for (const image of imageList) {
       const { id, url } = image;
-      teaserBoxes.push(<TeaserBox key={id} id={id} imageUrl={url} />);
+      teaserBoxes.push(<TeaserBox key={id} id={id} imageUrl={url} selectImage={selectImage} />);
     }
 
     return teaserBoxes;
@@ -50,12 +51,14 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchImagesStart,
+  selectImage,
 }, dispatch);
 
 App.propTypes = {
   fetchImagesStart: PropTypes.func,
   imageList: PropTypes.array,
   imageUrl: PropTypes.string,
+  selectImage: PropTypes.func,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -22,6 +22,7 @@ TeaserBox.propTypes = {
   id: PropTypes.string,
   imageUrl: PropTypes.string,
   selectImage: PropTypes.func,
+  selectedImageId: PropTypes.string,
 };
 
 export default TeaserBox;
